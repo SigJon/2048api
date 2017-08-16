@@ -1,0 +1,46 @@
+td
+{ width:80px;
+  height:80px;
+  border:1px
+  solid #333;}
+
+td.a {
+  background-color:white; }
+
+table {
+  margin: 0 auto;}
+
+td.test {
+    background-color:red; }
+
+/*td.test2 {
+      background-color:green; }*/
+
+td.nul
+{
+  background-color:white;
+}
+
+td.nb4
+{
+  background-color:green;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
+
+td.nb2
+{
+  background-color:blue;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
+
+td.nb8
+{
+  background-color:red;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
