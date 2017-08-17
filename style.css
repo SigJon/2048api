@@ -1,6 +1,11 @@
+body
+{
+background-color: black;
+}
+
 td
-{ width:80px;
-  height:80px;
+{ width:100px;
+  height:100px;
   border:1px
   solid #333;}
 
@@ -10,12 +15,6 @@ td.a {
 table {
   margin: 0 auto;}
 
-td.test {
-    background-color:red; }
-
-/*td.test2 {
-      background-color:green; }*/
-
 td.nul
 {
   background-color:white;
@@ -23,7 +22,7 @@ td.nul
 
 td.nb4
 {
-  background-color:green;
+  background-color:#4b42f4;
   text-align: center;
   color : white;
   font-size: xx-large;
@@ -31,16 +30,149 @@ td.nb4
 
 td.nb2
 {
-  background-color:blue;
+  background-color:#0d8966;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+  transition-property: color;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+td.nb8
+{
+  background-color: #0d890f;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+  animation: test8 0.6s ease-in-out;
+}
+
+@keyframes test8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+td.nb16
+{
+  background-color:#bd3ed1;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+  animation: test16 0.6s ease-in-out;
+}
+
+@keyframes test16 {
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(200deg);
+  }
+  66% {
+    transform: rotate(120deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+td.nb32
+{
+  background-color:#d13e3e;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+  animation: test32 0.6s ease-in-out;
+}
+
+@keyframes test32 {
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(180deg);
+  }
+  66% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+td.nb64
+{
+  background-color:#ea2a37;
   text-align: center;
   color : white;
   font-size: xx-large;
 }
 
-td.nb8
+td.nb128
 {
-  background-color:red;
+  background-color:#50B000;
   text-align: center;
   color : white;
   font-size: xx-large;
+}
+
+td.nb256
+{
+  background-color:#50B000;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
+
+td.nb512
+{
+  background-color:#50B000;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
+
+td.nb1024
+{
+  background-color:#50B000;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
+
+td.nb2048
+{
+  background-color:#50B000;
+  text-align: center;
+  color : white;
+  font-size: xx-large;
+}
+
+div.score
+{
+  margin: 0 auto;
+  width: 150px;
+  border:2px
+  solid #333;
+  text-align: center;
+  color : white;
+  background-color: blue;
+}
+
+div.score_title
+{
+  margin: 0 auto;
+  padding: 0.5%;
+  width: 150px;
+  border:2px
+  solid #333;
+  text-align: center;
+  color : white;
+  background-color: black;
 }
