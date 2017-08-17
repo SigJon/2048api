@@ -101,9 +101,7 @@ $(document).ready(function()
                     {
                       select_right = $('[x='+x+'][y='+z+']');
                       z++;
-                      console.log("toto");
                     }
-                  console.log(select_right);
                         if(select_right.attr('nbr') == 0)//if the last case on the right is empty
                         {
                           var value = select.attr('nbr');
@@ -113,7 +111,6 @@ $(document).ready(function()
                         else if(select_right.attr('nbr') != select.attr('nbr') && select_right.attr('nbr') != 0)//if the last case on the right as a value but diffrent
                         {
                           var value = select.attr('nbr');
-                          console.log("tata");
                           var new_select = $('[x='+x+'][y='+(z-2)+']');
                           new_select.text(value).attr('nbr', value).removeClass("nul").addClass("nb"+value+"");
                           select.text("").attr('nbr', 0).removeClass("nb"+value+"").addClass("nul");
@@ -129,9 +126,7 @@ $(document).ready(function()
                 else if(select_right.attr('nbr') == select.attr('nbr'))
                 {
                   var value = select.attr('nbr');
-                  console.log(value);
                   var new_value = 2*value;
-                  console.log(new_value);
                   select.text("").attr('nbr', 0).removeClass("nb"+value+"").addClass("nul");
                   select_right.text(new_value).attr('nbr', new_value).removeClass("nul").removeClass("nb"+value+"").addClass("nb"+new_value+"");
                 }
@@ -142,4 +137,64 @@ $(document).ready(function()
     });
   };
 move_right();
+
+function move_left()
+{
+  window.addEventListener("keydown", function (event)
+  {
+    if(event.keyCode == 37)
+    {
+      for(var x=0; x<4; x++)
+      {
+        for(var y=1; y<4; y++)
+        {
+          var select = $('[x='+x+'][y='+y+']');
+          if(select.attr('nbr') != 0)
+          {
+            var select_left = $('[x='+x+'][y='+(y-1)+']');
+              if(select_left.attr('nbr') == 0)
+              {
+                  var z = y-1;
+                  while(select_left.attr('nbr') == 0 && z>=0) //we move on the next left case until there's a number
+                  {
+                    select_left = $('[x='+x+'][y='+z+']');
+                    z--;
+                  }
+                      if(select_left.attr('nbr') == 0)//if the last case on the right is empty
+                      {
+                        var value = select.attr('nbr');
+                        select_left.text(value).attr('nbr', value).removeClass("nul").addClass("nb"+value+"");
+                        select.text("").attr('nbr', 0).removeClass("nb"+value+"").addClass("nul");
+                      }
+                      else if(select_left.attr('nbr') != select.attr('nbr') && select_left.attr('nbr') != 0)//if the last case on the right as a value but diffrent
+                      {
+                        var value = select.attr('nbr');
+                        var new_select = $('[x='+x+'][y='+(z+2)+']');
+                        new_select.text(value).attr('nbr', value).removeClass("nul").addClass("nb"+value+"");
+                        select.text("").attr('nbr', 0).removeClass("nb"+value+"").addClass("nul");
+                      }
+                      else if(select_left.attr('nbr') == select.attr('nbr'))// if the last case on the right has the same value
+                      {
+                        var value = select.attr('nbr');
+                        var new_value = 2*value;
+                        select.text("").attr('nbr', 0).removeClass("nb"+value+"").addClass("nul");
+                        select_left.text(new_value).attr('nbr', new_value).removeClass("nul").removeClass("nb"+value+"").addClass("nb"+new_value+"");
+                      }
+              }
+              else if(select_left.attr('nbr') == select.attr('nbr'))
+              {
+                var value = select.attr('nbr');
+                var new_value = 2*value;
+                select.text("").attr('nbr', 0).removeClass("nb"+value+"").addClass("nul");
+                select_left.text(new_value).attr('nbr', new_value).removeClass("nul").removeClass("nb"+value+"").addClass("nb"+new_value+"");
+              }
+          }
+        }
+      }
+    }
+  });
+};
+move_left();
+
+
 });
