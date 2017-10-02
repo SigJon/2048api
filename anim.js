@@ -5,6 +5,8 @@
   $(this).append(display_array());
   play_the_game();
 
+
+//Display a 4x4 array in the HTML
   function display_array()
   {
     // create ScoreBox
@@ -33,11 +35,10 @@
   {
     final_score += points;
     $('.score').text(final_score);
-    console.log(final_score);
     return(final_score);
   }
 
-
+//Randomly number generation for each turn, mainly 2's and some 4's
   function generate_numbers()
   {
       var min = 2;
@@ -50,51 +51,55 @@
       return random;
   }
 
+
+//Display the generated number in a case free of numbers
   function generate_cases(num)
   {
     //generate random x position
     var i = 0;
-    while(i<num)
+    while (i < num)
     {
-      var min_x = 0;
-      var max_x = 3;
-      var random_x = Math.floor(Math.random() * (max_x - min_x + 1)) + min_x;
-      //generate random y position
-      var min_y = 0;
-      var max_y = 3;
-      var random_y = Math.floor(Math.random() * (max_y - min_y + 1)) + min_y;
+        var min_x = 0;
+        var max_x = 3;
+        var random_x = Math.floor(Math.random() * (max_x - min_x + 1)) + min_x;
 
-      var select = $('[x='+random_x+'][y='+random_y+'][nbr = 0]');
+        //generate random y position
+        var min_y = 0;
+        var max_y = 3;
+        var random_y = Math.floor(Math.random() * (max_y - min_y + 1)) + min_y;
+
+        var select = $('[x='+random_x+'][y='+random_y+'][nbr = 0]');
         if(select[0] && case_over() == false)
         {
-          var value = generate_numbers();
-          select.append(value).attr('nbr', value).removeClass("nul").addClass("nb"+value+"");
+            var value = generate_numbers();
+            select.append(value).attr('nbr', value).removeClass("nul").addClass("nb"+value+"");
         }
         else if (case_over() == false)
         {
-          generate_cases(1);
+            generate_cases(1);
         }
       i++;
     }
   }
 
+//Checks how many of the 16 cases have numbers on it
   function case_over()
   {
-    var full_flag = 0;
+      var full_flag = 0;
       for(var x=0; x<4; x++)
       {
-        for(var y=0; y<4; y++)
-        {
-          var select = $('[x='+x+'][y='+y+']');
-          if(select.attr('nbr') != 0)
+          for(var y=0; y<4; y++)
           {
-          full_flag++;
+              var select = $('[x='+x+'][y='+y+']');
+              if(select.attr('nbr') != 0)
+              {
+              full_flag++;
+              }
+              else
+              {
+                return false;
+              }
           }
-          else
-          {
-            return false;
-          }
-        }
       }
       if(full_flag == 16)
       {
@@ -106,6 +111,8 @@
     }
   }
 
+
+//
   function game_over()
   {
       for(var x=0; x<4; x++)
